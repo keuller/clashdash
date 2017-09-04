@@ -2,10 +2,10 @@
     <div style="margin: 20px;">
         <br/>
         <div class="columns">
-            <Indicator label="Membros" :value="members()"></Indicator>
-            <Indicator label="Trof&eacute;us" :value="trophies()"></Indicator>
-            <Indicator label="Doa&ccedil;&otilde;es" :value="donations()"></Indicator>
-            <Indicator label="Regi&atilde;o" :value="regionName()"></Indicator>
+            <Indicator :value="members()">Membros</Indicator>
+            <Indicator :value="trophies()">Trof&eacute;us</Indicator>
+            <Indicator :value="donations()">Doa&ccedil;&otilde;es</Indicator>
+            <Indicator :value="regionName()">Regi&atilde;o</Indicator>
         </div>
     </div>
 </template>
