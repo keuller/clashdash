@@ -10,6 +10,7 @@ import (
 func Register(app *echo.Echo) {
 	app.File("/", "index.html")
 	app.Static("/dist", "dist")
+	app.Static("/img", "img")
 	app.GET("/clan", clanInfo)
 }
 

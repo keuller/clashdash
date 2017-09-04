@@ -1,21 +1,15 @@
 let path = require('path')
 let webpack = require('webpack')
   , ExtractTextPlugin = require('extract-text-webpack-plugin')
+  , CleanWebpackPlugin = require('clean-webpack-plugin')
 
 let extractCSS = new ExtractTextPlugin("css/app.css")
   , extractSCSS = new ExtractTextPlugin("css/build.css")
 
-let rxjs = [
-  'rxjs/Subject', 'rxjs/Observable', 'rxjs/add/observable/of', 'rxjs/add/observable/fromPromise',
-  'rxjs/add/operator/mergeMap', 'rxjs/add/operator/map', 'rxjs/add/operator/startWith', 
-  'rxjs/add/operator/scan', 'rxjs/add/operator/catch', 'rxjs/add/operator/debounce'
-]
-
 let config = {
     entry:{
         bundle: path.join(__dirname, 'src/index.js'),
-        runtime: ['preact', 'preact-router', 'uuid'],
-        vendor: rxjs
+        runtime: ['vue']
     },
 
     output: {
@@ -27,9 +21,12 @@ let config = {
     module: {
         rules: [
         {
-            test: /\.(js|jsx)$/,
+            test: /\.(js)$/,
             loader: 'babel-loader',
             exclude: /node_modules/
+        }, {
+            test: /\.vue$/,
+            loader: 'vue-loader'
         }, {
             test: /\.css$/,
             use: extractCSS.extract([ 'css-loader' ])
@@ -48,7 +45,7 @@ let config = {
 
     resolve: {
         modules: ['src', 'node_modules'],
-        extensions: ['.js', '.jsx']
+        extensions: ['.js', '.vue']
     },
 
     devServer: {
@@ -61,10 +58,11 @@ let config = {
 
     plugins: [
         new webpack.NoEmitOnErrorsPlugin(),
+        new CleanWebpackPlugin(['dist']),
         extractSCSS,
         extractCSS,
         new webpack.optimize.CommonsChunkPlugin({
-            name: ['runtime', 'vendor'],
+            name: ['runtime'],
             warnings: false
         })
     ]
