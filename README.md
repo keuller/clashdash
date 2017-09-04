@@ -1,8 +1,6 @@
-## Developer Circles Demo
+## Clash Dashboard
 
-This is an exemple showned at meetup Developer Circles.
-
-This project presents 3 sample of use Redux through RxJS implementation.
+Simple Clash Royale dashboard about my clan.
 
 To run it, just type:
 
