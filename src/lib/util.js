@@ -5,8 +5,10 @@ export const genId = () => uuid().replace(/\-/g, '').substr(15).toUpperCase()
 
 export const createStream = (value) => Observable.of(value)
 
-export const get = (url) => Observable.fromPromise(fetch(url))
-    .flatMap(result => (result.ok ? Observable.fromPromise(result.json()) : createStream({ error: true, cause: 'Not found.' })))
+export const get = (url) => Observable.fromPromise(fetch(url, { mode: 'no-cors' }))
+    .flatMap(result => {
+        return (result.ok ? Observable.fromPromise(result.json()) : createStream({ error: true, cause: 'Not found.' })) 
+    })
     .catch(err => createStream({ error: true, cause: err }))
 
 export const fmtDate = (value) => {

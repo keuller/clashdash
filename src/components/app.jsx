@@ -2,21 +2,18 @@ import { h } from 'preact'
 import Router from 'preact-router'
 import createHistory from 'history/createHashHistory'
 import TopNav from 'components/topnav'
-import Splash from 'components/splash'
-import Exemplo1 from 'components/exemplo1'
-import Exemplo2 from 'components/exemplo2'
-import Exemplo3 from 'components/exemplo3'
+import Indicators from 'components/indicator'
+import MemberList from 'components/members'
 
-const App = ({ character, user, billing }) => (
+const loader = (clan) => (clan.data.name == undefined ? 'pageloader is-active' : 'pageloader')
+
+const App = ({ clan }) => (
     <main>
-        <TopNav />
+        <div class={loader(clan)}></div>
+        <TopNav data={clan.data} />
         <div class="hero">
-            <Router history={createHistory()}>
-                <Splash path="/" />
-                <Exemplo1 path="/exemplo1" person={character.selected} />
-                <Exemplo2 path="/exemplo2" billing={billing} />
-                <Exemplo3 path="/exemplo3" user={user} />
-            </Router>
+            <Indicators clan={clan.data} />
+            <MemberList clan={clan.data} />
         </div>
     </main>
 )
