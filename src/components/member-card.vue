@@ -5,7 +5,7 @@
                 <div class="media">
                     <div class="media-left">
                         <figure class="image is-48x48">
-                            <img :src="icon()" alt="icon" />
+                            <img :src="icon()" :alt="member.arena.arena" :title="member.arena.arena"/>
                         </figure>
                     </div>
                     <div class="media-content">
@@ -15,10 +15,10 @@
                 </div>
             </div>
             <footer class="card-footer">
-                <div class="card-footer-item">
+                <div class="card-footer-item card_footer">
                     Trof&eacute;us: {{member.score}}
                 </div>
-                <div class="card-footer-item">
+                <div class="card-footer-item card_footer">
                     Doa&ccedil;&otilde;es: {{member.donations}}
                 </div>
             </footer>
@@ -40,3 +40,7 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.card_footer { font-size: .9rem !important; }
+</style>

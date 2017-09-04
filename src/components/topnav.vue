@@ -3,7 +3,7 @@
         <div class="navbar-brand topnav-left">
             <div class="navbar-item">
                 <span class="icon"><img :src="data.brand" border="0" /></span> 
-                <span>&nbsp;{{data.name}} ({{data.description}})</span>
+                <span>&nbsp;<b>{{data.name}}</b> ({{data.description}})</span>
             </div>
         </div>
         <div class="navbar-menu">
