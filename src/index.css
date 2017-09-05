@@ -1,5 +1,5 @@
 html, body { background-color: #3b5999 }
-.topbar_nav { background-color: #fff; }
+.topbar_nav { background-color: #fff; color: #3b5999 !important; }
 #topbar > .navbar-brand > .navbar-item, 
 #topbar > .navbar-menu > .navbar-start > .navbar-item,
 #topbar > .navbar-menu > .navbar-end > .navbar-item { color:#8F8F8F !important; }
