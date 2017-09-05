@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main class="app_content">
         <div :class="loader()"></div>
         <TopNav :data="clan" @showMembers="toggleView()" @showStats="toggleView()"></TopNav>
         <div class="hero">
@@ -53,3 +53,7 @@
 
     export default App
 </script>
+
+<style scoped>
+    .app_content { margin-top:35px; }
+</style>

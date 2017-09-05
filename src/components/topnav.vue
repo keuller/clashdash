@@ -1,5 +1,5 @@
 <template>
-    <nav id="topbar" class="navbar topbar_nav">
+    <nav id="topbar" class="navbar navbar-fixed topbar_nav">
         <div class="navbar-brand topnav-left">
             <div class="navbar-item">
                 <span class="icon"><img :src="data.brand" border="0" /></span> 
@@ -47,3 +47,12 @@
 
     export default TopNav
 </script>
+
+<style scoped>
+    .navbar-fixed { 
+        top:0; z-index:250; position:fixed; width:100%; 
+        -webkit-box-shadow: 0px 1px 3px 0px rgba(64,59,64,1);
+        -moz-box-shadow: 0px 1px 3px 0px rgba(64,59,64,1);
+        box-shadow: 0px 1px 3px 0px rgba(64,59,64,1);
+    } 
+</style>
