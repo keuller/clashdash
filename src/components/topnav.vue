@@ -28,11 +28,11 @@
     const TopNav = {
         name: 'topnav',
 
-        props: [ 'data' ],
+        props: ['data'],
 
-        data: () => ({
-            tag: '2YQ8UQC'
-        }),
+        data() {
+            return { tag: '2YQ8UQC' }
+        },
 
         methods: {
             showMembers() {
