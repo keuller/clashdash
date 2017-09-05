@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import 'sass/build.sass'
 import 'index.css'
+import 'animate.css'
 import App from 'components/app'
 
 document.addEventListener('DOMContentLoaded', (ev) => {

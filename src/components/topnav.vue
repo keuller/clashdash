@@ -8,6 +8,12 @@
         </div>
         <div class="navbar-menu">
             <div class="navbar-start">
+                <div class="navbar-item">
+                    <a @click.prevent="showMembers()">Membros</a>
+                </div>
+                <div class="navbar-item">
+                    <a @click.prevent="showStats()">Stats</a>
+                </div>
             </div>
             <div class="navbar-end">
                 <span class="navbar-item">
@@ -26,7 +32,17 @@
 
         data: () => ({
             tag: '2YQ8UQC'
-        })
+        }),
+
+        methods: {
+            showMembers() {
+                this.$emit('showMembers')
+            },
+
+            showStats() {
+                this.$emit('showStats')
+            }
+        }
     }
 
     export default TopNav
