@@ -17,7 +17,7 @@
             </div>
             <div class="navbar-end">
                 <span class="navbar-item">
-                    Tag: {{tag}}
+                    Clan Tag:&nbsp;<b>{{tag}}</b>
                 </span>
             </div>
         </div>

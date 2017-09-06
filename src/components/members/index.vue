@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import MemberCard from 'components/member-card'
+    import MemberCard from 'components/members/member-card'
 
     export default {
         name: 'member-list',

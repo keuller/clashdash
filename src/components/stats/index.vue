@@ -19,9 +19,9 @@
 </template>
 
 <script>
-    import StatsArena from 'components/stats-arena'
-    import StatsDonations from 'components/stats-donations'
-    import StatsChest from 'components/stats-chest'
+    import StatsArena from 'components/stats/stats-arena'
+    import StatsDonations from 'components/stats/stats-donations'
+    import StatsChest from 'components/stats/stats-chest'
 
     export default {
         name: 'stats',

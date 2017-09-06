@@ -4,7 +4,7 @@
         <TopNav :data="clan" @showMembers="toggleView()" @showStats="toggleView()"></TopNav>
         <div class="hero">
             <Indicators :clan="clan" />
-            <MemberList v-show="members" :list="clan.members" />
+            <Members v-show="members" :list="clan.members"></Members>
             <Stats v-show="stats" :arena="clan.arenaStats" :donations="clan.donationStats" :clanChest="clan.clanChestStats"></Stats>
         </div>
     </main>
@@ -12,8 +12,8 @@
 
 <script>
     import TopNav from 'components/topnav'
-    import Indicators from 'components/indicator'
-    import MemberList from 'components/members'
+    import Indicators from 'components/indicators'
+    import Members from 'components/members'
     import Stats from 'components/stats'
     import { transform } from 'util/index'
 
@@ -28,7 +28,7 @@
             }
         },
 
-        components: { TopNav, Indicators, MemberList, Stats },
+        components: { TopNav, Indicators, Members, Stats },
 
         mounted() {
             let domain = window.location.hostname

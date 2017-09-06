@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Indicator from 'components/layout/box-indicator'
+import Indicator from 'components/indicators/indicator'
 
 const Indicators = {
     name: 'indicators',
