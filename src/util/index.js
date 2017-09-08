@@ -1,6 +1,12 @@
 
 export const icon = (url) => url.replace('/arena', '/img')
 
+export const getUrl = () => {
+    let domain = window.location.hostname
+    , port = window.location.port == '' ? '80' : window.location.port
+    return `http://${domain}:${port}/clan`
+}
+
 export const transform = (data) => {
     let arena = {}
     let arenaGroup = data.members.reduce((prev, member) => {

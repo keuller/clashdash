@@ -15,7 +15,7 @@
     import Indicators from 'components/indicators'
     import Members from 'components/members'
     import Stats from 'components/stats'
-    import { transform } from 'util/index'
+    import { transform, getUrl } from 'util/index'
 
     const App = {
         name: 'app',
@@ -31,12 +31,15 @@
         components: { TopNav, Indicators, Members, Stats },
 
         mounted() {
-            let domain = window.location.hostname
-                , port = window.location.port == '' ? '80' : window.location.port
-
-            fetch(`http://${domain}:${port}/clan`)
+            fetch(getUrl())
                 .then(resp => resp.json())
                 .then(data => { this.$set(this, 'clan', transform(data)) })
+
+            setInterval(() => {
+                fetch(getUrl())
+                .then(resp => resp.json())
+                .then(data => { this.$set(this, 'clan', transform(data)) })
+            }, 5500)
         },
 
         methods: {
