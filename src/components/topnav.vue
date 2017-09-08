@@ -3,10 +3,19 @@
         <div class="navbar-brand topnav-left">
             <div class="navbar-item">
                 <span class="icon"><img :src="data.brand" border="0" /></span> 
-                <span>&nbsp;<b>{{data.name}}</b> ({{data.description}})</span>
+                <span>&nbsp;
+                    <b>{{data.name}}</b> <span class="is-hidden-mobile">({{data.description}})</span>
+                </span>
+            </div>
+
+            <div v-bind:class="mobileBurguer" v-on:click="toggleMenu" data-target="mobiMenu">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
-        <div class="navbar-menu">
+
+        <div id="mobiMenu" v-bind:class="mobileMenuClass">
             <div class="navbar-start">
                 <div class="navbar-item">
                     <a @click.prevent="showMembers()">Membros</a>
@@ -16,11 +25,12 @@
                 </div>
             </div>
             <div class="navbar-end">
-                <span class="navbar-item">
+                <span class="navbar-item is-hidden-mobile">
                     Clan Tag:&nbsp;<b>{{tag}}</b>
                 </span>
             </div>
         </div>
+
     </nav>
 </template>
 
@@ -31,7 +41,12 @@
         props: ['data'],
 
         data() {
-            return { tag: '2YQ8UQC' }
+            return { 
+                tag: '2YQ8UQC',
+                mobileMenu: false,
+                mobileBurguer: ['navbar-burger', 'burger'],
+                mobileMenuClass: ['navbar-menu']
+            }
         },
 
         methods: {
@@ -41,6 +56,12 @@
 
             showStats() {
                 this.$emit('showStats')
+            },
+
+            toggleMenu() {
+                this.mobileBurguer = this.mobileMenu ? ['navbar-burger', 'burger'] : ['navbar-burger', 'burger', 'is-active']
+                this.mobileMenuClass = this.mobileMenu ? ['navbar-menu'] : ['navbar-menu', 'is-active']
+                this.mobileMenu = !this.mobileMenu
             }
         }
     }
