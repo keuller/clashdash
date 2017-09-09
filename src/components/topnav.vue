@@ -51,11 +51,11 @@
 
         methods: {
             showMembers() {
-                this.$emit('showMembers')
+                this.$emit('toggle', 'members')
             },
 
             showStats() {
-                this.$emit('showStats')
+                this.$emit('toggle', 'stats')
             },
 
             toggleMenu() {

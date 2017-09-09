@@ -1,7 +1,7 @@
 <template>
     <main class="app_content">
-        <div :class="loader()"></div>
-        <TopNav :data="clan" @showMembers="toggleView()" @showStats="toggleView()"></TopNav>
+        <div v-bind:class="loader()"></div>
+        <TopNav v-bind:data="clan" @toggle="toggleView"></TopNav>
         <div class="hero">
             <Indicators :clan="clan" />
             <Members v-show="members" :list="clan.members"></Members>
@@ -47,9 +47,14 @@
                 return this.clan.name == undefined ? 'pageloader is-active' : 'pageloader'
             },
 
-            toggleView() {
-                this.$set(this, 'members', !this.members)
-                this.$set(this, 'stats', !this.stats)
+            toggleView(type) {
+                if (!this.members && type == 'members') {
+                    this.$set(this, 'members', true)
+                    this.$set(this, 'stats', false)
+                } else if (!this.stats && type == 'stats') {
+                    this.$set(this, 'members', false)
+                    this.$set(this, 'stats', true)
+                }
             }
         }
     }
