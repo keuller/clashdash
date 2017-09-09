@@ -1,17 +1,16 @@
 <template>
     <div class="box fadeIn animated" style="margin: 20px">
-        <h4 class="title is-4">Estat&iacute;sticas</h4>
         <div class="columns">
             <div class="column is-4">
-                <h4 class="subtitle is-5 has-text-centered">Membros Por Arena</h4>
+                <h4 class="subtitle is-5 has-text-centered"><b>Membros Por Arena</b></h4>
                 <StatsArena :list="arena"></StatsArena>
             </div>
             <div class="column is-4">
-                <h4 class="subtitle is-5 has-text-centered">Top 5 Doadores</h4>
+                <h4 class="subtitle is-5 has-text-centered"><b>Top 5 Doadores</b></h4>
                 <StatsDonations :list="donations"></StatsDonations>
             </div>
             <div class="column is-4">
-                <h4 class="subtitle is-5 has-text-centered">Top 5 Ba&uacute; do Clan</h4>
+                <h4 class="subtitle is-5 has-text-centered"><b>Top 5 Ba&uacute; do Clan</b></h4>
                 <StatsChest :list="clanChest"></StatsChest>
             </div>
         </div>
