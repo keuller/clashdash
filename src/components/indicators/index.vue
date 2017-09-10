@@ -1,5 +1,5 @@
 <template>
-    <div style="margin: 20px;">
+    <div style="margin: 20px;" class="is-hidden-mobile">
         <br/>
         <div class="columns">
             <Indicator :value="members()">Membros</Indicator>

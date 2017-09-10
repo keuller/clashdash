@@ -52,10 +52,12 @@
         methods: {
             showMembers() {
                 this.$emit('toggle', 'members')
+                this.toggleMenu()
             },
 
             showStats() {
                 this.$emit('toggle', 'stats')
+                this.toggleMenu()
             },
 
             toggleMenu() {
