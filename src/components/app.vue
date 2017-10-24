@@ -39,7 +39,7 @@
                 fetch(getUrl())
                 .then(resp => resp.json())
                 .then(data => { this.$set(this, 'clan', transform(data)) })
-            }, 10000)
+            }, 15000)
         },
 
         methods: {
